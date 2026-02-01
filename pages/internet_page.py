@@ -9,7 +9,7 @@ class InternetPage(BasePage):
     USERNAME_INPUT = (By.ID, "username")
     PASSWORD_INPUT = (By.ID, "password")
     LOGIN_BUTTON = (By.CLASS_NAME, "radius")
-    FlASH_MESSAGE = (By.ID, "flash")
+    FLASH_MESSAGE = (By.ID, "flash")
 
     def open(self):
         self.driver.get(self.URL)
