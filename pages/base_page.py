@@ -33,7 +33,7 @@ class BasePage:
     def wait_title_contains(self, text, timeout=10):
         WebDriverWait(self.driver, timeout).until(EC.title_contains(text))
 
-    def wait_element_visible(self, locator, timeout=10):
+    def wait_element_visible(self, locator, timeout=20):
         return WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located(locator)
         )

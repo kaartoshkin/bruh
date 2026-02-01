@@ -8,7 +8,7 @@ class InternetPage(BasePage):
 
     USERNAME_INPUT = (By.ID, "username")
     PASSWORD_INPUT = (By.ID, "password")
-    LOGIN_BUTTON = (By.CLASS_NAME, "fa fa-2x fa-sign-in")
+    LOGIN_BUTTON = (By.CLASS_NAME, "radius")
     FlASH_MESSAGE = (By.ID, "flash")
 
     def open(self):

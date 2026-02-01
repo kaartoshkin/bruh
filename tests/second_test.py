@@ -14,11 +14,9 @@ def test_login_invalid_credentials(driver):
 
     page.login("wrong", "wrong")
 
-    try:
-        page.wait_element_visible((By.ID, "flash"))
-        flash_message = page.get_flash_message()
-    except TimeoutException:
-        flash_message = ""
+    page.wait_element_visible((By.ID, "flash"))
+    flash_message = page.get_flash_message()
 
     assert "Your username is invalid!" in flash_message
-    assert page.wait_url_contains("/login")
+    page.wait_url_contains("/login")
+    assert "/login" in driver.current_url
