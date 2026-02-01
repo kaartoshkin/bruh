@@ -6,7 +6,6 @@ def sum_to_n(n):
     return total
 
 N = int(input("Введите число N: "))
-
 print("Сумма чисел от 1 до", N, ":", sum_to_n(N))
 
 # Функция для переворачивания строки
@@ -14,8 +13,8 @@ def reverse_string(s):
     return s[::-1]
 
 s = input("Введите строку: ")
-
 print("Перевернутая строка:", reverse_string(s))
+
 # Функция для подсчета количества гласных в строке
 def count_vowels(s):
     vowels = "aeiou"
@@ -27,6 +26,7 @@ def count_vowels(s):
 
 input_string = input("Введите строку: ")
 print("Количество гласных в строке:", count_vowels(input_string))
+
 # Функция для поиска наименьшего числа в списке
 def lowest_digit(s):
     digits = [int(char) for char in s if char.isdigit()]
@@ -36,6 +36,7 @@ def lowest_digit(s):
 
 s = input("Введите строку чисел: ")
 print(lowest_digit(s))
+
 # Функция для проверки, является ли строка палиндромом
 def palindrome_check(s):
     cleaned = ''.join(char.lower() for char in s if char.isalnum())
@@ -47,3 +48,16 @@ def palindrome_check(s):
 s = input("Введите строку: ")
 print(palindrome_check(s))
 
+# Частотный анализ символов в строке
+def frequency_analysis(s):
+    frequency = {}
+    for char in s:
+        if char.isalnum():
+            char = char.lower()
+            frequency[char] = frequency.get(char, 0) + 1
+    if frequency == {}:
+        return "Строка пуста или не содержит буквенно-цифровых символов"
+    return frequency
+
+s = input("Введите строку для частотного анализа: ")
+print(frequency_analysis(s))
