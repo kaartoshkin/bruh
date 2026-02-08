@@ -20,7 +20,7 @@ class InternetPage(BasePage):
         self.click(self.LOGIN_BUTTON)
 
     def get_flash_message(self) -> str:
-        flash_element = self.wait_element_visible(self.FlASH_MESSAGE)
+        flash_element = self.wait_element_visible(self.FLASH_MESSAGE)
         return flash_element.text.strip()
 
     
