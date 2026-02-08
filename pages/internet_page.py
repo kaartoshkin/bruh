@@ -29,7 +29,8 @@ class InternetPage(BasePage):
     def get_flash_message(self) -> str:
         flash_element = self.wait_element_visible(self.FLASH_MESSAGE)
         return flash_element.text.replace("×", "").strip()
-
-
     
-       
+    def is_login_form_visible(self) -> bool:
+        self.wait_element_visible(self.USERNAME_INPUT)
+        self.wait_element_visible(self.PASSWORD_INPUT)
+        return True

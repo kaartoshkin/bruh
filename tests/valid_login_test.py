@@ -42,3 +42,7 @@ def test_login_and_logout(driver):
     with allure.step("Verify the URL"):
         page.wait_url_contains("/login")
         assert "/login" in driver.current_url
+
+    with allure.step("Verify the login form is visible again"):
+        assert page.is_login_form_visible()
+
