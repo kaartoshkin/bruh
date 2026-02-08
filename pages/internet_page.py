@@ -19,6 +19,9 @@ class InternetPage(BasePage):
         self.type_text(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
 
+    def login_with_valid_credentials(self):
+        self.login("tomsmith", "SuperSecretPassword!")
+
     def get_flash_message(self) -> str:
         flash_element = self.wait_element_visible(self.FLASH_MESSAGE)
         return flash_element.text.strip()

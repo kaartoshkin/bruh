@@ -4,7 +4,7 @@ from pages.internet_page import InternetPage
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# Parametrization added to test multiple invalid credentials
+# Test for invalid login credentials
 
 @pytest.mark.parametrize(
         "username, password, expected_message",
