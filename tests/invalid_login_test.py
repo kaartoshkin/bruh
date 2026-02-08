@@ -15,7 +15,7 @@ from selenium.webdriver.support import expected_conditions as EC
         ]
 )
 
-
+@pytest.mark.smoke
 def test_login_invalid_credentials(driver, username, password, expected_message):
 
     with allure.step("Open the login page"):
