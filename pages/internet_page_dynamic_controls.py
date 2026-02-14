@@ -40,7 +40,6 @@ class InternetPage(BasePage):
         self.wait_element_visible(self.INPUT_FIELD)
         EC.element_to_be_clickable(self.INPUT_FIELD)
     
-    # element_to_not_be_clickable
     def wait_input_disabled(self):
         self.wait_element_visible(self.INPUT_FIELD)
         EC.invisibility_of_element_located(self.INPUT_FIELD)

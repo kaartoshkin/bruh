@@ -1,9 +1,6 @@
 import pytest
 import allure
 from pages.internet_page_dynamic_controls import InternetPage
-
-# Test for adding and removing a checkbox
-
 class TestDynamicControls:
     @pytest.mark.smoke
     def test_add_and_remove_checkbox(self, driver):
@@ -29,6 +26,7 @@ class TestDynamicControls:
         with allure.step("Verify the message text"):
             assert "It's back!" in page.get_message_text()  
 
+    @pytest.mark.smoke
     def test_enable_and_disable_input(self, driver):
         with allure.step("Open the Internet Page"):
             page = InternetPage(driver)
