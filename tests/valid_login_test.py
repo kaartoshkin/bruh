@@ -1,6 +1,6 @@
 import pytest
 import allure
-from pages.internet_page import InternetPage
+from pages.internet_page_login import InternetPage
 
 # Test for valid login credentials
 @pytest.mark.smoke
