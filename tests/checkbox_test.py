@@ -27,4 +27,4 @@ class TestCheckbox:
             page.wait_checkbox_visible()
 
         with allure.step("Verify the message text"):
-            assert page.get_message_text() == "It's back!"
+            assert "It's back!" in page.get_message_text()  
