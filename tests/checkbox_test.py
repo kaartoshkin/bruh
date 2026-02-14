@@ -14,11 +14,17 @@ class TestCheckbox:
         with allure.step("Remove the checkbox"):
             page.remove_checkbox()
 
+        with allure.step("Wait for the checkbox to be removed"):
+            page.wait_checkbox_not_visible()
+
         with allure.step("Verify the message text"):
             assert page.get_message_text() == "It's gone!"
-
+        
         with allure.step("Add the checkbox"):
             page.add_checkbox()
+
+        with allure.step("Wait for the checkbox to be visible"):
+            page.wait_checkbox_visible()
 
         with allure.step("Verify the message text"):
             assert page.get_message_text() == "It's back!"

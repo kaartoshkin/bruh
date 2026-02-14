@@ -38,4 +38,8 @@ class BasePage:
             EC.visibility_of_element_located(locator)
         )
     
+    def wait_element_not_visible(self, locator, timeout=20):
+        return WebDriverWait(self.driver, timeout).until(
+            EC.invisibility_of_element_located(locator)
+        )
     
