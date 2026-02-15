@@ -9,12 +9,6 @@ class InternetPage(BasePage):
     CLICK_HERE_LINK = (By.CSS_SELECTOR, ".example > p:nth-child(2) > a:nth-child(5)")
     FLASH_MESSAGE = (By.ID, "flash")
 
-
-    FLASH_MESSAGES = [
-        "Action successful",
-        "Action unsuccesful, please try again ",
-        ""]
-
     def open(self):
         self.driver.get(self.URL)
 
