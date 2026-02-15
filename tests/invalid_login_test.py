@@ -1,34 +1,16 @@
 import pytest
-import allure
-from pages.internet_page import InternetPage
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 
-# Test for invalid login credentials
+from bruh.pages.login_page import LoginPage
 
-@pytest.mark.parametrize(
-        "username, password, expected_message",
-        [
-            ("wrong", "wrong", "Your username is invalid!"),
-            ("tomsmith", "wrong", "Your password is invalid!"),
-            ("", "", "Your username is invalid!"),
-        ]
-)
+class TestInvalidLogin:
+    @pytest.mark.parametrize("username, password", [("standard_user", "wrong_password"),
+                                                    ("locked_out_user", ""),
+                                                    ("", "secret_sauce")])
 
-@pytest.mark.smoke
-def test_login_invalid_credentials(driver, username, password, expected_message):
-
-    with allure.step("Open the login page"):
-        page = InternetPage(driver)
-        page.open()
-
-    with allure.step(f"Login with username: '{username}' and password: '{password}'"):
-        page.login(username, password)
-
-    with allure.step("Verify the flash message"):
-        flash_message = page.get_flash_message()
-        assert expected_message in flash_message
-    
-    with allure.step("Verify the URL"):
-        page.wait_url_contains("/login")
-        assert "/login" in driver.current_url
+    def test_invalid_login(self, driver, username, password):
+        login_page = LoginPage(driver)
+        login_page.login(username, password)
+        error_message = login_page.wait_element_visible((By.CSS_SELECTOR, "h3[data-test='error']"))
+        assert error_message.is_displayed()
